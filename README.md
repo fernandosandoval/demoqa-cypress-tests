@@ -75,3 +75,39 @@ Key files and directories:
 Cypress is configured via the `cypress.config.js` file. This file exports a configuration object using the `defineConfig` function.
 
 Example `cypress.config.js`:
+const { defineConfig } = require('cypress');
+
+module.exports = defineConfig({
+e2e: {
+baseUrl: 'https://example.com',
+specPattern: 'cypress/integration/**/*.cy.js',
+supportFile: 'cypress/support/index.js',
+setupNodeEvents(on, config) {
+// You can add event listeners here
+},
+},
+});
+
+
+## Running Tests
+
+To run your tests, you can use the following command:
+
+* **Headless mode:**
+
+    ```
+    npx cypress run
+    ```
+
+    This runs Cypress tests in the command line, without opening a browser. This is typically used in CI environments.
+* **Headed mode:**
+
+    ```
+    npx cypress open
+    ```
+
+    This opens the Cypress Test Runner in a browser, allowing you to see your tests execute.
+
+## Documentation
+
+For more detailed information about Cypress, its features, and how to use it, please refer to the official Cypress documentation: <https://docs.cypress.io/>
